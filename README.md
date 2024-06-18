@@ -15,14 +15,18 @@ This guide provides step-by-step instructions to set up a Kubernetes 1.30.2 clus
 ```bash
 swapoff -a
 sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+```
 
 ### Step 2: Enable IPv4 Packet Forwarding
 
-# sysctl params required by setup, params persist across reboots
+#### sysctl params required by setup, params persist across reboots
 ```bash
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.ipv4.ip_forward = 1
 EOF
+```
 
-# Apply sysctl params without reboot
+#### Apply sysctl params without reboot
+```bash
 sudo sysctl --system
+```
