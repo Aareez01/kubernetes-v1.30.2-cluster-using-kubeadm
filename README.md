@@ -324,10 +324,14 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-### Step 10: Initialize the Cluster
+### Step 10: Initialize the Cluster and Install CNI
 ```bash
 sudo kubeadm config images pull
 sudo kubeadm init
+```
+#### After Initialzing the Cluster Connect to it and apply the CNI yaml (We're using Weave CNI in this guide)
+```bash
+kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml
 ```
 
 ### Step 11: Join Worker Nodes to the Cluster
