@@ -344,7 +344,7 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
 ```bash
 #Apply the CNI YAML
-kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml
+kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.30/net.yaml
 ```
 
 ### Step 11: Join Worker Nodes to the Cluster
