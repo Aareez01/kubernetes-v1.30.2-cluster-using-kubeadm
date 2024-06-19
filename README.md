@@ -330,7 +330,20 @@ sudo kubeadm config images pull
 sudo kubeadm init
 ```
 #### After Initialzing the Cluster Connect to it and apply the CNI yaml (We're using Weave CNI in this guide)
+
 ```bash
+#To start using your cluster, you need to run the following as a regular user:
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+#Alternatively, if you are the root user, you can run:
+
+export KUBECONFIG=/etc/kubernetes/admin.conf
+```
+```bash
+#Apply the CNI YAML
 kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml
 ```
 
